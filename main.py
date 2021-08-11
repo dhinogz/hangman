@@ -7,10 +7,9 @@ from hangman_words import word_list
 def playGame():
 	answer = random.choice(word_list).upper()
 	placeholder = "_" * len(answer)
-	lifes = 6
+	lives = 6
 	print(logo)
-	print(f"Psst! Here's a hint: {answer}")
-	while lifes != 0 and not did_player_win(answer, placeholder):
+	while lives != 0 and not did_player_win(answer, placeholder):
 		
 		print(f"Currently: {placeholder}\n")
 		guess = input("Guess a letter: ").upper()
@@ -21,12 +20,12 @@ def playGame():
 			print(f"Correct!")
 		else:
 			print(f"Wrong!")
-			lifes -= 1
-		print(f"Lifes: {lifes}")		
-		print(stages[lifes])
+			lives -= 1
+		print(f"Lives: {lives}")		
+		print(stages[lives])
 		
 
-	if lifes == 0:
+	if lives == 0:
 		print(f"You didn't guess the word \"{answer}\". Better luck next time!\n")
 	else:
 		print(f"Congratulations! You guessed the word \"{answer}\"")
